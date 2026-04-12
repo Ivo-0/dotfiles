@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "backlight", "custom/power-profile", "cpu", "pulseaudio", "network", "bluetooth", "tray", "custom/powermenu"],
+
+    "hyprland/workspaces": {
+        "format": "{id}"
+    },
+
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+"clock": {
+    "format": "{:%H:%M  %a-%d-%b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "today-format": "<b>{}</b>",
+    "on-click": "gnome-calendar"
+},
+
+"idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+        "activated": " 󰈈 ACTIVE 󰈈 ",
+        "deactivated": " INACTIVE "
+    },
+},
+
+"custom/power-profile": {
+    "exec": "~/.config/hypr/scripts/battery-info.sh",
+    "interval": 5,
+    "return-type": "json",
+    "on-click": "~/.config/hypr/scripts/toggle-profile.sh",
+    "tooltip": true
+},
+
+"cpu": {
+    "format": "  {usage}%",
+    "interval": 2,
+    "on-click": "missioncenter"
+},
+
+"backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+},
+
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 MUTED",
+    "format-icons": {
+        "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol",
+},
+
+    "network": {
+        "format-wifi": "{essid}",
+        "format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor",
+    },
+
+"bluetooth": {
+    "format": "BT {status}",
+    "format-connected": "BT {device_alias}",
+    "format-disabled": "BT off",
+    "on-click": "blueman-manager",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+},
+
+"custom/powermenu": {
+    "format": "⏻",
+    "on-click": "~/.config/hypr/scripts/powermenu.sh",
+    "tooltip": false
+},
+
+    "tray": {
+        "spacing": 10
+    }
+}
