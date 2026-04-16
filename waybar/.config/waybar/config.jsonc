@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "spacing": 4,
+    "height": 40,
+    "spacing": 6,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["custom/updates", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": ["idle_inhibitor", "backlight", "custom/power-profile", "cpu", "pulseaudio", "network", "bluetooth", "tray", "custom/powermenu"],
 
@@ -21,6 +21,14 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "today-format": "<b>{}</b>",
     "on-click": "gnome-calendar"
+},
+
+"custom/updates": {
+    "exec": "~/.config/hypr/scripts/update-packages.sh",
+    "interval": 3600,
+    "return-type": "json",
+    "on-click": "~/.config/hypr/scripts/run-update.sh",
+    "tooltip": true
 },
 
 "idle_inhibitor": {
