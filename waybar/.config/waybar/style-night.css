@@ -1,0 +1,167 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #0a0e1a;
+    color: #ffffff;
+    border-bottom: 2px solid #ff006e;
+}
+
+/* Left, centre, right sections */
+.modules-left, .modules-right, .modules-center {
+    padding: 0 8px;
+}
+
+/* Individual module pills */
+#custom-theme-toggle,
+#custom-updates,
+#workspaces,
+#clock,
+#idle_inhibitor,
+#backlight,
+#battery,
+#custom-power-profile,
+#cpu,
+#pulseaudio,
+#network,
+#bluetooth,
+#custom-powermenu,
+#tray {
+    color: #ffffff;
+    padding: 2px 12px;
+    margin: 4px 3px;
+    border-radius: 8px;
+    border: 2px solid #1e2a4a;
+    font-weight: bold
+}
+
+#custom-theme-toggle {
+    color: #ffbe0b;
+    border-color: #ffbe0b;
+}
+
+#custom-updates {
+    color: #00f5d4;
+    border-color: #00f5d4;
+}
+
+#custom-updates.outdated {
+    color: #ff8800;
+    border-color: #ff8800;
+}
+
+#custom-updates.updated {
+    color: #00f5d4;
+    border-color: #00f5d4;
+}
+
+/* Workspaces */
+#workspaces button {
+    color: #888888;
+    padding: 0 6px;
+    border-radius: 6px;
+}
+
+#workspaces button.active {
+    color: #ff006e;
+    border-bottom: 2px solid #ff006e;
+}
+
+#workspaces button:hover {
+    color: #ffbe0b;
+}
+
+/* Clock */
+#clock {
+    color: #ffbe0b;
+    border-color: #ffbe0b;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+    color: #ff006e;
+    border-color: #ff006e;
+}
+
+#idle_inhibitor.deactivated {
+    color: #555555;
+}
+
+/* Backlight */
+#backlight {
+    color: #ffbe0b;
+    border-color: #ffbe0b;
+}
+
+/* Battery */
+#battery {
+    color: #00f5d4;
+}
+
+#battery.warning {
+    color: #ff8800;
+}
+
+#battery.critical {
+    color: #ff0000;
+}
+
+#custom-power-profile {
+    color: #ff8800;
+    border-color: #ff8800;
+    padding: 2px 12px;
+    margin: 4px 3px;
+    border-radius: 8px;
+    border: 1px solid #ff8800;
+}
+
+/* CPU */
+#cpu {
+    font-family: "JetBrainsMono Nerd Font";
+    color: #ff006e;
+    border-color: #ff006e;
+}
+
+/* Volume */
+#pulseaudio {
+    color: #bf5af2;
+    border-color: #bf5af2;
+}
+
+#pulseaudio.muted {
+    color: #555555;
+}
+
+/* Network */
+#network {
+    color: #00f5d4;
+    border-color: #00f5d4;
+}
+
+#network.disconnected {
+    color: #ff0000;
+}
+
+/* Bluetooth */
+#bluetooth {
+    color: #bf5af2;
+    border-color: #bf5af2;
+}
+
+#tray {	
+}
+
+#custom-powermenu {
+    color: #ff006e;
+    border-color: #ff006e;
+    padding: 2px 12px;
+    margin: 4px 3px;
+    border-radius: 8px;
+    border: 1px solid #ff006e;
+}
+
