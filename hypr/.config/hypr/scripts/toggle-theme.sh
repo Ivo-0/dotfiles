@@ -7,7 +7,7 @@ if [ "$current" = "night" ]; then
     # Switch to day
     cp ~/.config/waybar/style-day.css ~/.config/waybar/style.css
     gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Light"
-    hyprctl keyword general:col.active_border "rgba(ffd600ee) rgba(3d0066ee) 45deg"
+    hyprctl keyword general:col.active_border "rgba(00ffd9ed) rgba(ffd600ee) 45deg"
     hyprctl keyword general:col.inactive_border "rgba(ffb30044)"
     echo "day" > ~/.config/waybar/current-theme
 else
