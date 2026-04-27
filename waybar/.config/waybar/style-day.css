@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background-color: #ffeb00;
+    background: linear-gradient(to right, #00ff55, #004ccf, #ff00d4);
     color: #000000;
     border-bottom: 2px solid #ff006e;
 }
@@ -74,7 +74,8 @@ window#waybar {
 
 /* Clock */
 #clock {
-	background-color: #00ffd7;
+	border: 2px solid #11ab87;
+	background: radial-gradient(circle, #19ffc9, #ffeb00);
 }
 
 /* Idle inhibitor */
