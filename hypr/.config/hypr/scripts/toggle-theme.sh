@@ -6,14 +6,30 @@ current=$(cat ~/.config/waybar/current-theme 2>/dev/null || echo "night")
 if [ "$current" = "night" ]; then
     # Switch to day
     cp ~/.config/waybar/style-day.css ~/.config/waybar/style.css
-    gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Light"
+    gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Purple-Light"
+    gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+    # Remove existing symlinks and copy day theme gtk4 files
+    rm ~/.config/gtk-4.0/gtk.css
+    rm ~/.config/gtk-4.0/gtk-dark.css
+    rm -r ~/.config/gtk-4.0/assets
+    cp /usr/share/themes/Orchis-Purple-Light/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
+    cp /usr/share/themes/Orchis-Purple-Light/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
+    cp -r /usr/share/themes/Orchis-Purple-Light/gtk-4.0/assets ~/.config/gtk-4.0/
     hyprctl keyword general:col.active_border "rgba(00ffd9ed) rgba(ffd600ee) 45deg"
     hyprctl keyword general:col.inactive_border "rgba(ffb30044)"
     echo "day" > ~/.config/waybar/current-theme
 else
     # Switch to night
     cp ~/.config/waybar/style-night.css ~/.config/waybar/style.css
-    gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Dark"
+    gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Purple-Dark"
+    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    # Remove existing symlinks and copy night theme gtk4 files
+    rm ~/.config/gtk-4.0/gtk.css
+    rm ~/.config/gtk-4.0/gtk-dark.css
+    rm -r ~/.config/gtk-4.0/assets
+    cp /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
+    cp /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
+    cp -r /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/assets ~/.config/gtk-4.0/
     hyprctl keyword general:col.active_border "rgba(00b4ffee) rgba(bf00ffee) 45deg"
     hyprctl keyword general:col.inactive_border "rgba(1e2a4aaa)"
     echo "night" > ~/.config/waybar/current-theme
