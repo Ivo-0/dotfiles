@@ -1,0 +1,6 @@
+[Unit]
+Description=Auto update notification
+
+[Service]
+Type=oneshot
+ExecStart=/home/ivo/.config/hypr/scripts/auto-update-notify.sh
