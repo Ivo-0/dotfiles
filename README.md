@@ -103,6 +103,7 @@ stow rofi
 stow swaync
 stow hyprlock
 stow hypridle
+stow systemd
 ```
 
 If Stow throws a conflict error, remove the conflicting file from `~/.config/` and run the stow command again.
@@ -132,8 +133,8 @@ No additional packages required beyond the base installation.
 
 #### 1. Copy service files to system directory
 ```bash
-sudo cp ~/.config/systemd/user/auto-update.service /etc/systemd/system/
-sudo cp ~/.config/systemd/user/auto-update.timer /etc/systemd/system/
+❯ sudo cp ~/dotfiles/systemd/.config/systemd/user/auto-update.service /etc/systemd/system/
+  sudo cp ~/dotfiles/systemd/.config/systemd/user/auto-update.timer /etc/systemd/system/
 ```
 
 #### 2. Make scripts executable
