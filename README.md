@@ -121,6 +121,89 @@ hyprctl reload
 ```
 
 ---
+## Auto Update Service
+
+The system includes an automatic update service that runs at 3am, checking for power and home network connection before updating all packages.
+
+### Dependencies
+No additional packages required beyond the base installation.
+
+### Setup
+
+#### 1. Copy service files to system directory
+```bash
+sudo cp ~/.config/systemd/user/auto-update.service /etc/systemd/system/
+sudo cp ~/.config/systemd/user/auto-update.timer /etc/systemd/system/
+```
+
+#### 2. Make scripts executable
+```bash
+chmod +x ~/.config/hypr/scripts/auto-update.sh
+chmod +x ~/.config/hypr/scripts/auto-update-notify.sh
+```
+
+#### 3. Set scripts as immutable for security
+```bash
+sudo chattr +i /home/ivo/.config/hypr/scripts/auto-update.sh
+sudo chattr +i /home/ivo/.config/hypr/scripts/auto-update-notify.sh
+```
+
+#### 4. Enable the user notification service
+```bash
+systemctl --user daemon-reload
+```
+
+#### 5. Enable and start the system timer
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable auto-update.timer
+sudo systemctl start auto-update.timer
+```
+
+#### 6. Verify the timer is active
+```bash
+sudo systemctl status auto-update.timer
+```
+
+You should see it listed as active with the next trigger time showing 3am.
+
+### How it works
+
+- The systemd timer triggers `auto-update.sh` as root at 3am
+- The script checks for AC power — if no power supply is found (desktop) the check is skipped
+- The script checks for home wifi (`DrWho?`) or ethernet connection
+- If checks pass, pacman updates run as root and AUR updates run as your user via yay
+- Results are written to `/var/log/auto-update.log`
+- The notification service is triggered as your user, sending swaync notifications for successes and failures
+
+### Checking update logs
+```bash
+cat /var/log/auto-update.log
+```
+
+### Testing manually
+```bash
+sudo /home/ivo/.config/hypr/scripts/auto-update.sh
+```
+
+### Re-editing the scripts
+Since the scripts are immutable, remove the flag before editing:
+```bash
+sudo chattr -i /home/ivo/.config/hypr/scripts/auto-update.sh
+```
+Re-apply after editing:
+```bash
+sudo chattr +i /home/ivo/.config/hypr/scripts/auto-update.sh
+```
+
+### Troubleshooting
+Check service logs if something isn't working:
+```bash
+sudo journalctl -u auto-update.service
+journalctl --user -u auto-update-notify.service
+```
+
+---
 
 ## Updating
 
