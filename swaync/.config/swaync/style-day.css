@@ -1,0 +1,83 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+.control-center {
+    background: linear-gradient(to bottom, rgba(0, 255, 85, 0.95), rgba(0, 76, 207, 0.95));
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 12px;
+    color: #000000;
+}
+
+.notification {
+    background-color: #00f5d4;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 6px 0;
+    color: #000000;
+}
+
+.notification:hover {
+    background-color: #ffeb00;
+    border-color: #000000;
+}
+
+.notification-summary {
+    color: #ff006e;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.notification-body {
+    color: #000000;
+    font-size: 12px;
+}
+
+.notification-action {
+    background-color: #ffeb00;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    color: #000000;
+    padding: 4px 12px;
+    margin: 4px 2px;
+}
+
+.notification-action:hover {
+    background-color: #ff006e;
+    color: #000000;
+}
+
+.close-button {
+    background-color: transparent;
+    border: none;
+    color: #ff006e;
+    font-size: 16px;
+}
+
+.close-button:hover {
+    color: #000000;
+    background-color: #ff006e;
+    border-radius: 4px;
+}
+
+.clear-all-button {
+    background-color: #bb00ff;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    color: #000000;
+    padding: 6px 12px;
+    margin: 6px 0;
+}
+
+.clear-all-button:hover {
+    background-color: #ff00d4;
+    color: #000000;
+}
+
+.empty-state {
+    color: #555555;
+    font-size: 14px;
+}

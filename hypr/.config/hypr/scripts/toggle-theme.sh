@@ -15,8 +15,11 @@ if [ "$current" = "night" ]; then
     cp /usr/share/themes/Orchis-Purple-Light/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
     cp /usr/share/themes/Orchis-Purple-Light/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
     cp -r /usr/share/themes/Orchis-Purple-Light/gtk-4.0/assets ~/.config/gtk-4.0/
-    hyprctl keyword general:col.active_border "rgba(00ffd9ed) rgba(ffd600ee) 45deg"
-    hyprctl keyword general:col.inactive_border "rgba(ffb30044)"
+    ln -sf ~/.config/rofi/theme-day.rasi ~/.config/rofi/theme.rasi
+    ln -sf ~/.config/swaync/style-day.css ~/.config/swaync/style.css
+    killall swaync && swaync & disown
+    hyprctl keyword general.col.active_border = { colors = { "rgba(00b4ffee)", "rgba(bf00ffee)" }, angle = 45 },
+    hyprctl keyword general.col.inactive_border = "rgba(8800ffee)",
     echo "day" > ~/.config/waybar/current-theme
 else
     # Switch to night
@@ -30,6 +33,9 @@ else
     cp /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
     cp /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
     cp -r /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/assets ~/.config/gtk-4.0/
+    ln -sf ~/.config/rofi/theme-night.rasi ~/.config/rofi/theme.rasi
+    ln -sf ~/.config/swaync/style-night.css ~/.config/swaync/style.css
+    killall swaync && swaync & disown
     hyprctl keyword general:col.active_border "rgba(00b4ffee) rgba(bf00ffee) 45deg"
     hyprctl keyword general:col.inactive_border "rgba(1e2a4aaa)"
     echo "night" > ~/.config/waybar/current-theme
