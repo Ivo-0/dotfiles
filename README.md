@@ -107,6 +107,8 @@ stow systemd
 ```
 
 If Stow throws a conflict error, remove the conflicting file from `~/.config/` and run the stow command again.
+Somewhere around here I think hyprpaper.conf and hyprlock.conf are gonna throw errors that they can't find the image file
+coz like its just in my docs so just micro into those confs and change the image filextension to whatever you want
 
 ### 9. Make scripts executable
 ```bash
