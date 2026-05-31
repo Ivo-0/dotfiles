@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG="/tmp/auto-update.log"
+LOG="/var/auto-update.log"
 export HOME=/home/ivo
 export XDG_RUNTIME_DIR=/run/user/1000
 
