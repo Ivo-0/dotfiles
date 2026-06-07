@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG="/var/auto-update.log"
+LOG="/var/log/auto-update.log"
 export HOME=/home/ivo
 export XDG_RUNTIME_DIR=/run/user/1000
 
@@ -42,7 +42,6 @@ aur_packages=$(sudo -u ivo yay -Qu --aur --noconfirm 2>/dev/null | awk '{print $
 for package in $aur_packages; do
     if ! sudo -u ivo yay -S "$package" \
         --noconfirm \
-        --nocleanmenu \
         --nodiffmenu \
         --removemake \
         --norebuild 2>&1; then
