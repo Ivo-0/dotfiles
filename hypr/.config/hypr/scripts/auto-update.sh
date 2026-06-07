@@ -46,7 +46,6 @@ aur_packages=$(sudo -u ivo yay -Qu --aur --noconfirm 2>/dev/null | awk '{print $
 for package in $aur_packages; do
     if ! sudo -u ivo yay -S "$package" \
         --noconfirm \
-        --nodiffmenu \
         --removemake \
         --norebuild 2>&1; then
         echo "FAILED_PKG:$package" >> "$LOG"

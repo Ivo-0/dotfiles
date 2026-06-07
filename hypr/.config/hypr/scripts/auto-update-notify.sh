@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG="/var/auto-update.log"
+LOG="/var/log/auto-update.log"
 
 if [ ! -f "$LOG" ]; then
     notify-send "Auto Update" "No update log found" -i dialog-error
