@@ -22,6 +22,10 @@ fi
 wifi=$(nmcli -t -f NAME connection show --active | grep "DrWho?")
 ethernet=$(nmcli -t -f TYPE connection show --active | grep "ethernet")
 
+echo "WiFi: $wifi" >> /var/log/auto-update.log
+echo "Ethernet: $ethernet" >> /var/log/auto-update.log
+echo "Power supplies: $power_supplies" >> /var/log/auto-update.log
+
 if [ -z "$wifi" ] && [ -z "$ethernet" ]; then
     echo "SKIPPED_NETWORK" > "$LOG"
     sudo -u ivo XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus systemctl --user start auto-update-notify.service
