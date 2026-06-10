@@ -18,8 +18,7 @@ if [ "$current" = "night" ]; then
     ln -sf ~/.config/rofi/theme-day.rasi ~/.config/rofi/theme.rasi
     ln -sf ~/.config/swaync/style-day.css ~/.config/swaync/style.css
     killall swaync && swaync & disown
-    hyprctl keyword general.col.active_border = { colors = { "rgba(00b4ffee)", "rgba(bf00ffee)" }, angle = 45 },
-    hyprctl keyword general.col.inactive_border = "rgba(8800ffee)",
+	cp ~/.config/hypr/windowlookday.lua ~/.config/hypr/windowlook.lua
     echo "day" > ~/.config/waybar/current-theme
 else
     # Switch to night
@@ -36,8 +35,7 @@ else
     ln -sf ~/.config/rofi/theme-night.rasi ~/.config/rofi/theme.rasi
     ln -sf ~/.config/swaync/style-night.css ~/.config/swaync/style.css
     killall swaync && swaync & disown
-    hyprctl keyword general:col.active_border "rgba(00b4ffee) rgba(bf00ffee) 45deg"
-    hyprctl keyword general:col.inactive_border "rgba(1e2a4aaa)"
+	cp ~/.config/hypr/windowlooknight.lua ~/.config/hypr/windowlook.lua
     echo "night" > ~/.config/waybar/current-theme
 fi
 
