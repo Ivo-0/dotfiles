@@ -53,4 +53,6 @@ for package in $aur_packages; do
 done
 
 echo "COMPLETE" >> "$LOG"
+# Get DBus address dynamically from waybar process
+DBUS=$(cat /proc/$(pgrep -u ivo waybar)/environ 2>/dev/null | tr '\0' '\n' | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-)
 sudo -u ivo XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus systemctl --user start auto-update-notify.service
