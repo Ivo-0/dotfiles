@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background: linear-gradient(to right, #00ff55, #004ccf, #ff00d4);
+    background:  rgba(88, 137, 235, 0.9);
     color: #000000;
     border-bottom: 2px solid #ff006e;
 }

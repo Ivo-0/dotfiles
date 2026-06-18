@@ -4,7 +4,7 @@
 }
 
 .control-center {
-    background: linear-gradient(to bottom, rgba(0, 255, 85, 0.95), rgba(0, 76, 207, 0.95));
+    background: linear-gradient(to bottom, rgba(88, 137, 235, 0.95), rgba(0, 255, 85, 0.95));
     border: 2px solid #000000;
     border-radius: 12px;
     padding: 12px;
@@ -17,7 +17,7 @@
     border-radius: 8px;
     padding: 12px;
     margin: 6px 0;
-    color: #000000;
+    color: #000000 !important;
 }
 
 .notification:hover {
@@ -26,13 +26,13 @@
 }
 
 .notification-summary {
-    color: #ff006e;
+    color: #000000 !important;
     font-weight: bold;
     font-size: 14px;
 }
 
 .notification-body {
-    color: #000000;
+    color: #000000 !important;
     font-size: 12px;
 }
 
