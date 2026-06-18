@@ -19,6 +19,8 @@ if [ "$current" = "night" ]; then
     ln -sf ~/.config/swaync/style-day.css ~/.config/swaync/style.css
     killall swaync && swaync & disown
 	cp ~/.config/hypr/windowlookday.lua ~/.config/hypr/windowlook.lua
+    cp ~/.config/hypr/hyprpaper-day.conf ~/.config/hypr/hyprpaper.conf
+    killall hyprpaper && hyprpaper & disown
     echo "day" > ~/.config/waybar/current-theme
 else
     # Switch to night
@@ -36,6 +38,8 @@ else
     ln -sf ~/.config/swaync/style-night.css ~/.config/swaync/style.css
     killall swaync && swaync & disown
 	cp ~/.config/hypr/windowlooknight.lua ~/.config/hypr/windowlook.lua
+    cp ~/.config/hypr/hyprpaper-night.conf ~/.config/hypr/hyprpaper.conf
+    killall hyprpaper && hyprpaper & disown
     echo "night" > ~/.config/waybar/current-theme
 fi
 
