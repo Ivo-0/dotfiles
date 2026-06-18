@@ -4,41 +4,48 @@
 }
 
 .control-center {
-    background: linear-gradient(to bottom, rgba(88, 137, 235, 0.95), rgba(0, 255, 85, 0.95));
-    border: 2px solid #000000;
+    background: linear-gradient(to bottom, rgba(88, 137, 235, 0.95), rgba(3, 213, 150, 0.95));
+    border: 2px solid #ff006e;
     border-radius: 12px;
     padding: 12px;
     color: #000000;
 }
 
 .notification {
-    background-color: #00f5d4;
-    border: 2px solid #000000;
+    color: #000000;
+    font-style: normal;
+    background-color: #03dcbc;
+    border: 2px solid #ff006e;
     border-radius: 8px;
     padding: 12px;
-    margin: 6px 0;
-    color: #000000 !important;
+    margin: 5px 0;
 }
 
 .notification:hover {
-    background-color: #ffeb00;
-    border-color: #000000;
+    color: #d47bf8;
+    background-color: #d47bf8;
+    border-color: #ff006e;
+}
+
+.notification-group {
+    background-color: transparent;
+    color: #000000;
 }
 
 .notification-summary {
-    color: #000000 !important;
+    color: #00b4ff;
     font-weight: bold;
     font-size: 14px;
 }
 
 .notification-body {
-    color: #000000 !important;
+    color: #000000;
     font-size: 12px;
 }
 
 .notification-action {
-    background-color: #ffeb00;
-    border: 2px solid #000000;
+    background-color: #d47bf8;
+    border: 1px solid #ff006e;
     border-radius: 6px;
     color: #000000;
     padding: 4px 12px;
@@ -46,8 +53,23 @@
 }
 
 .notification-action:hover {
-    background-color: #ff006e;
+    background-color: #00b4ff;
     color: #000000;
+}
+
+.body {
+    color: #000000;
+    font-size: 14px;
+}
+
+.summary {
+    color: #000000;
+    font-size: 14px;
+}
+
+.time {
+    color: #000000;
+    font-size: 14px;
 }
 
 .close-button {
@@ -58,14 +80,30 @@
 }
 
 .close-button:hover {
-    color: #000000;
+    color: #ffffff;
     background-color: #ff006e;
     border-radius: 4px;
 }
 
-.clear-all-button {
-    background-color: #bb00ff;
+.widget-dnd {
+    color: #000000;
+}
+
+.widget-dnd>switch {
+    background: #03dcbc;
     border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.widget-dnd>switch:checked {
+    background: #03dcbc;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.clear-all-button {
+    background-color: #1e2a4a;
+    border: 1px solid #bf00ff;
     border-radius: 6px;
     color: #000000;
     padding: 6px 12px;
@@ -73,8 +111,8 @@
 }
 
 .clear-all-button:hover {
-    background-color: #ff00d4;
-    color: #000000;
+    background-color: #bf00ff;
+    color: #0a0e1a;
 }
 
 .empty-state {
