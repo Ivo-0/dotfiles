@@ -17,7 +17,8 @@ if [ "$current" = "night" ]; then
     cp -r /usr/share/themes/Orchis-Purple-Light/gtk-4.0/assets ~/.config/gtk-4.0/
     ln -sf ~/.config/rofi/theme-day.rasi ~/.config/rofi/theme.rasi
     ln -sf ~/.config/swaync/style-day.css ~/.config/swaync/style.css
-    killall swaync && swaync & disown
+    swaync-client --reload-css
+    kitten themes Kaolin Light
 	cp ~/.config/hypr/windowlookday.lua ~/.config/hypr/windowlook.lua
     cp ~/.config/hypr/hyprpaper-day.conf ~/.config/hypr/hyprpaper.conf
     killall hyprpaper && hyprpaper & disown
@@ -36,7 +37,8 @@ else
     cp -r /usr/share/themes/Orchis-Purple-Dark/gtk-4.0/assets ~/.config/gtk-4.0/
     ln -sf ~/.config/rofi/theme-night.rasi ~/.config/rofi/theme.rasi
     ln -sf ~/.config/swaync/style-night.css ~/.config/swaync/style.css
-    killall swaync && swaync & disown
+    swaync-client --reload-css
+    kitten themes Adwaita dark
 	cp ~/.config/hypr/windowlooknight.lua ~/.config/hypr/windowlook.lua
     cp ~/.config/hypr/hyprpaper-night.conf ~/.config/hypr/hyprpaper.conf
     killall hyprpaper && hyprpaper & disown
