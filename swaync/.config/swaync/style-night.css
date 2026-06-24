@@ -12,17 +12,24 @@
 }
 
 .notification {
+    color: #ffffff;
+    font-style: normal;
     background-color: #0d1224;
-    border: 1px solid #1e2a4a;
+    border: 2px solid #1e2a4a;
     border-radius: 8px;
     padding: 12px;
     margin: 6px 0;
-    color: #ffffff;
 }
 
 .notification:hover {
+    color: #ffffff;
     background-color: #1a0a2e;
     border-color: #00b4ff;
+}
+
+.notification-group {
+    background-color: transparent;
+    color: #ffffff;
 }
 
 .notification-summary {
@@ -47,7 +54,22 @@
 
 .notification-action:hover {
     background-color: #00b4ff;
-    color: #0a0e1a;
+    color: #ffffff;
+}
+
+.body {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.summary {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.time {
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .close-button {
@@ -61,6 +83,22 @@
     color: #ffffff;
     background-color: #ff006e;
     border-radius: 4px;
+}
+
+.widget-dnd {
+    color: #ffffff;
+}
+
+.widget-dnd>switch {
+    background: #ff006e;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+}
+
+.widget-dnd>switch:checked {
+    background: #03dcbc;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
 }
 
 .clear-all-button {
