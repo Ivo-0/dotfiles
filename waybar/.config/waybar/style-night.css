@@ -154,6 +154,13 @@ window#waybar {
 #backlight {
     color: #ffbe0b;
     border-color: #ffbe0b;
+    transition: all 0.3s ease-in-out;
+}
+
+#backlight:hover {
+    font-weight: 700;
+    color: #000000;
+    background: #ffbe0b;
 }
 
 /* Battery */
