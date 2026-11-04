@@ -19,7 +19,7 @@ if [ -n "$power_supplies" ]; then
 fi
 
 # Check network
-wifi=$(nmcli -t -f NAME connection show --active | grep "DrWho?")
+wifi=$(nmcli -t -f NAME connection show --active | grep "VM4702511")
 ethernet=$(nmcli -t -f TYPE connection show --active | grep "ethernet")
 
 echo "WiFi: $wifi" >> /var/log/auto-update.log

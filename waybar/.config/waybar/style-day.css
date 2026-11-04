@@ -1,13 +1,15 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 15px;
-    border: none;
-    border-radius: 0;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 8px;
     min-height: 0;
+    margin-bottom: 1px;
 }
 
 window#waybar {
-    background:  rgba(88, 137, 235, 0.9);
+    background:  rgba(88, 137, 235, 0.75);
     color: #000000;
     border-bottom: 2px solid #ff006e;
 }
@@ -22,6 +24,7 @@ window#waybar {
 #custom-updates,
 #workspaces,
 #clock,
+#custom-weather,
 #idle_inhibitor,
 #backlight,
 #battery,
@@ -37,22 +40,42 @@ window#waybar {
     margin: 4px 3px;
     border-radius: 8px;
     border: 2px solid #000000;
-    font-weight: bold
+    font-weight: 600;
 }
 
 #custom-theme-toggle {
+    border: 2px solid #4b0067;
     background-color: #bb00ff;
+    transition: all 0.2s ease-in-out;
 }
 
-#custom-updates {
-	background-color: #00f5d4;
+#custom-theme-toggle:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #4b0067;
+	background-color: #bb00ff;
 }
 
 #custom-updates.outdated {
+    border: 2px solid #703c00;
+	background-color: #ff8800;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-updates.outdated:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #703c00;
 	background-color: #ff8800;
 }
 
 #custom-updates.updated {
+    border: 2px solid #007b6b;
+	background-color: #00f5d4;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-updates.updated:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #007b6b;
 	background-color: #00f5d4;
 }
 
@@ -74,18 +97,51 @@ window#waybar {
 
 /* Clock */
 #clock {
-	border: 2px solid #11ab87;
-	background: radial-gradient(circle, #19ffc9, #ffeb00);
+	border: 2px solid #005d47;
+	background-color: #19ffc9;
+    transition: all 0.2s ease-in-out;
+}
+
+#clock:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #005d47;
+    background-color: #00ffc3;
+}
+
+#custom-weather {
+    background-color: #ffff00;
+    padding: 2px 12px;
+    margin: 4px 3px;
+    border: 2px solid #4b4b2f;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-weather:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #4b4b2f;
 }
 
 /* Idle inhibitor */
 #idle_inhibitor.activated {
+    border: 2px solid #6b002e;
 	background-color: #ff006e;
+    transition: all 0.2s ease-in-out;
+}
+
+#idle_inhibitor.activated:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #6b002e;
 }
 
 #idle_inhibitor.deactivated {
     color: #555555;
     border-color: #555555;
+    transition: all 0.2s ease-in-out;
+}
+
+#idle_inhibitor.deactivated:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #555555;    
 }
 
 /* Backlight */
@@ -108,34 +164,83 @@ window#waybar {
 
 #custom-power-profile {
 	background-color: #ff8800;
+    border-color: #703c00;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-power-profile:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #703c00;
 }
 
 /* CPU */
 #cpu {
 	background-color: #ff006e;
+    border-color: #6b002e;
+    transition: all 0.2s ease-in-out;
+}
+
+#cpu:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #6b002e;
 }
 
 /* Volume */
 #pulseaudio {
 	background-color: #bf5af2;
+    border-color: #60267d;
+    transition: all 0.2s ease-in-out;
+}
+
+#pulseaudio:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #60267d;
 }
 
 #pulseaudio.muted {
     background-color: #555555;
+    border-color: #000000;
+    transition: all 0.2s ease-in-out;
+}
+
+#pulseaudio.muted:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #000000;
 }
 
 /* Network */
 #network {
 	background-color: #00f5d4;
+    border-color: #006054;
+    transition: all 0.2s ease-in-out;
+}
+
+#network:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #006054;
 }
 
 #network.disconnected {
     background-color: #ff0000;
+    border-color: #610000;
+    transition: all 0.2s ease-in-out;
+}
+
+#network.disconnected:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #610000;
 }
 
 /* Bluetooth */
 #bluetooth {
 	background-color: #bf5af2;
+    border-color: #4f186a;
+    transition: all 0.2s ease-in-out;
+}
+
+#bluetooth:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #4f186a;
 }
 
 #tray {
@@ -144,4 +249,11 @@ window#waybar {
 
 #custom-powermenu {
 	background-color: #ff006e;
+    border-color: #6b002e;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-powermenu:hover {
+    font-weight: 700;
+    box-shadow: 2px 2px #6b002e;
 }

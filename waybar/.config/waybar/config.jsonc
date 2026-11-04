@@ -5,7 +5,7 @@
     "spacing": 6,
 
     "modules-left": ["idle_inhibitor", "custom/theme-toggle", "custom/updates", "hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "custom/weather"],
     "modules-right": ["backlight", "custom/power-profile", "cpu", "pulseaudio", "network", "bluetooth", "tray", "custom/powermenu"],
 
     "hyprland/workspaces": {
@@ -20,7 +20,14 @@
     "format": "{:%H:%M  %a-%d-%b}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "today-format": "<b>{}</b>",
-    "on-click": "gnome-calendar"
+    "on-click": "~/.config/waybar/scripts/toggle-calendar.sh",
+    "on-click-right": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"calendar\"))'"
+},
+
+"custom/weather": {
+  "exec": "~/.config/waybar/weather.py waybar",
+  "restart-interval": 900,
+  "return-type": "json"
 },
 
 "custom/theme-toggle": {
@@ -45,7 +52,7 @@
     "format-icons": {
         "activated": " 󰈈 ACTIVE 󰈈 ",
         "deactivated": " INACTIVE "
-    },
+    }
 },
 
 "custom/power-profile": {
@@ -59,7 +66,8 @@
 "cpu": {
     "format": "  {usage}%",
     "interval": 2,
-    "on-click": "missioncenter"
+    "on-click":"~/.config/waybar/scripts/toggle-btop.sh",
+    "on-click-right": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"sysstats\"))'"
 },
 
 "backlight": {
@@ -73,20 +81,23 @@
     "format-icons": {
         "default": [" ", " ", " "]
     },
-    "on-click": "pavucontrol",
+    "on-click": "~/.config/waybar/scripts/toggle-volume.sh",
+    "on-click-right": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"volume\"))'"
 },
 
-    "network": {
-        "format-wifi": "{essid}",
-        "format-disconnected": "Disconnected",
-        "on-click": "nm-connection-editor",
+"network": {
+    "format-wifi": "{essid}",
+    "format-disconnected": "Disconnected",
+    "on-click": "~/.config/waybar/scripts/toggle-network.sh",
+    "on-click-right":"hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"network\"))'" 
     },
 
 "bluetooth": {
     "format": "BT {status}",
     "format-connected": "BT {device_alias}",
     "format-disabled": "BT off",
-    "on-click": "blueman-manager",
+    "on-click": "~/.config/waybar/scripts/toggle-bluetooth.sh",
+    "on-click-right":"hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"bluetooth\"))'",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"

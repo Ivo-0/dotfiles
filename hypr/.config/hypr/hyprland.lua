@@ -29,7 +29,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("filen-desktop")
-    hl.exec_cmd("jamesdsp")
+    hl.exec_cmd("jamesdsp &")
 end)
 
 --############################
@@ -71,13 +71,13 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("easy",           { type = "spring", mass = 1, stiffness = 300.2633, dampening = 30.8273644 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "windows",       enabled = true,  speed = 1.5, spring = "easy" })
+hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 1.5,  spring = "easy" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, spring = "easy" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
@@ -90,6 +90,8 @@ hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+hl.animation({ leaf = "specialWorkspaceIn",  enabled = true,  speed = 2, bezier = "almostLinear", style = "slidefadevert -50%" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true,  speed = 2, bezier = "almostLinear", style = "slidefadevert -50%" })
 
 hl.config({
     dwindle = {
@@ -237,12 +239,15 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = {
-        class = "^(org.pulseaudio.pavucontrol)$",
-    },
-    float = true,
-    size = "700 600",
+    match = { class = "org.pulseaudio.pavucontrol" },
+    opacity     = "override 0.85 override 0.85 override",
+    float       = true,
+    size        = "700 600",
+    animation   = "slide top",
+    move        = { "(monitor_w - window_w - 14)", "58" },
+    workspace   = "special:volume",
 })
+
 
 hl.window_rule({
     match = {
@@ -252,10 +257,23 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = {
-        class = "^(org.gnome.Calendar)$",
-    },
-    float = true,
+    match       = { class = "org.gnome.Calendar" },
+    opacity     = "override 0.85 override 0.85 override",
+    float       = true,
+    size        = "800 700",
+    animation   = "slide top",
+    move = { "(monitor_w * 0.5) - (window_w * 0.5) + -75", "58" },
+    workspace   = "special:calendar",
+})
+
+hl.window_rule({
+    match = { title = "sysstat" },
+    opacity     = "override 0.85 override 0.85 override",
+    float       = true,
+    size        = "1500 850",
+    animation   = "slide top",
+    move        = { "(monitor_w - window_w - 14)", "58" },
+    workspace   = "special:sysstats",
 })
 
 hl.window_rule({
@@ -266,19 +284,23 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = {
-        class = "^(blueman-manager)$",
-    },
-    float = true,
-    size = "622 652",
+    match       = { class = "blueman-manager" },
+    opacity     = "override 0.85 override 0.85 override",
+    float       = true,
+    size        = "622 652",
+    animation   = "slide top",
+    move = { "(monitor_w - window_w - 14)", "58" },
+    workspace   = "special:bluetooth",
 })
 
 hl.window_rule({
-    match = {
-        class = "^(nm-connection-editor)$",
-    },
-    float = true,
-    size = "622 652",
+    match       = { class = "nm-connection-editor" },
+    opacity     = "override 0.85 override 0.85 override",
+    float       = true,
+    size        = "622 652",
+    animation   = "slide top",
+    move = { "(monitor_w - window_w - 14)", "58" },
+    workspace   = "special:network",
 })
 
 hl.window_rule({
@@ -287,14 +309,6 @@ hl.window_rule({
     },
     float = true,
     size = "622 652",
-})
-
-hl.window_rule({
-    match = {
-        class = "^(io.missioncenter.MissionCenter)$",
-    },
-    float = true,
-    size = "1000 700",
 })
 
 hl.window_rule({
