@@ -4,15 +4,13 @@ Always use don't cleanbuild, and don't do the other one, and remove make depende
 
 ### Official repos
 ```bash
-sudo pacman -S yay hyprland waybar hyprpaper hyprlock hypridle hyprshot rofi-wayland clipse wl-clipboard brightnessctl blueman pavucontrol gnome-calendar gnome-calculator nwg-displays nwg-look qt5ct qt6ct papirus-icon-theme ttf-jetbrains-mono-nerd stow git swaync btop network-manager-applet pacman-contrib polkit-gnome
+sudo pacman -S yay hyprland waybar hyprpaper hyprlock hypridle hyprshot rofi-wayland clipse wl-clipboard brightnessctl blueman pavucontrol gnome-calendar gnome-calculator nwg-displays nwg-look qt5ct qt6ct papirus-icon-theme ttf-jetbrains-mono-nerd stow git swaync btop network-manager-applet pacman-contrib polkit-gnome rclone
 ```
 
 ### AUR packages
 ```bash
-yay -S clipse orchis-theme mission-center-git james-dsp filen-desktop-bin
+yay -S clipse orchis-theme james-dsp filen-desktop-bin
 ```
-
-> During mission-center-git installation, select the CachyOS repo variant of rust when prompted.
 
 ---
 

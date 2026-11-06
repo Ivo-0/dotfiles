@@ -6,6 +6,7 @@ current=$(cat ~/.config/waybar/current-theme 2>/dev/null || echo "night")
 if [ "$current" = "night" ]; then
     # Switch to day
     cp ~/.config/waybar/style-day.css ~/.config/waybar/style.css
+    cp ~/.config/swaync/style-day.css ~/.config/swaync/style.css
     gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Purple-Light"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
     # Remove existing symlinks and copy day theme gtk4 files
@@ -26,6 +27,7 @@ if [ "$current" = "night" ]; then
 else
     # Switch to night
     cp ~/.config/waybar/style-night.css ~/.config/waybar/style.css
+    cp ~/.config/swaync/style-night.css ~/.config/swaync/style.css
     gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Purple-Dark"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
     # Remove existing symlinks and copy night theme gtk4 files
